@@ -14,7 +14,7 @@ COHERE_API_KEY = "9foAkbHGuvD7YosI0ujg65fhdUoxur4c8DIZ4FDK"
 co = cohere.Client(COHERE_API_KEY)
 
 app = Flask(__name__)
-
+PORT = int(os.environ.get("PORT", 5000))
 # Cargar modelo de análisis de sentimiento con BERT
 classifier = pipeline("text-classification", model="distilbert-base-uncased", return_all_scores=True)
 
@@ -194,4 +194,4 @@ def chat():
 
 # Ejecutar la aplicación
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
+    app.run(host="0.0.0.0", port=PORT)
