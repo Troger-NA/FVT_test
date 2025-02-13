@@ -181,17 +181,4 @@ Respuesta del asistente:
     return truncate_to_complete_sentence(response_text, max_length=TOPIC_MAX_TOKENS.get(topic, 400))
 
 # Endpoint para manejar mensajes en el chat
-@app.route("/chat", methods=["POST"])
-def chat():
-    data = request.get_json()
-    user_message = data.get("message", "")
 
-    if not user_message:
-        return jsonify({"error": "No se recibió un mensaje"}), 400
-
-    response = generate_response(user_message)
-    return jsonify({"response": response})
-
-# Ejecutar la aplicación
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=PORT)
