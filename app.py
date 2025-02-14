@@ -1,4 +1,5 @@
 import re
+import os
 import cohere
 from flask import Flask, request, jsonify
 from textblob import TextBlob
